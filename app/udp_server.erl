@@ -27,10 +27,10 @@ accept(Script_Server,Script_Port,Script_File,Socket) ->
 
 
 cgi_call(Socket,{Server,SPort,File},{Address, Port, Data}) ->
-% io:format("recv ~p~n", [Data]),
+ %io:format("recv ~p~n", [Data]),
 	case check:getdata(Data) of
 		{ok,{Protocol,PostData}} ->
-%	io:format("okdata ~p~n", [PostData]),
+	%io:format("okdata ~p~n", [PostData]),
 			{ok,CGIData}=fastcgi:do_request({Server,SPort,File},{Protocol,PostData}),
 			CGIDatastr=binary_to_list(CGIData),
         %% io:format("CGIDatastr ~p~n", [CGIDatastr]),  
