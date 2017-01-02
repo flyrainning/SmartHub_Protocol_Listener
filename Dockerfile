@@ -11,6 +11,8 @@ ENV PORT 8018
 ADD app /app
 WORKDIR /app
 
+RUN chmod a+x /app/run.sh
+
 EXPOSE 8018 8018/udp
 ENTRYPOINT ["/app/run.sh"]
 
